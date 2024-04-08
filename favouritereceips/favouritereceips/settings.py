@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
     'drf_yasg',
 
 ]
@@ -56,7 +57,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "allauth.account.middleware.AccountMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
+
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'favouritereceips.urls'
 
