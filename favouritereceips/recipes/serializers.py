@@ -4,13 +4,16 @@ from .models import Category, Image, Recipes, Nutritions, Ingredients, Instructi
 class RecipeListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipes
-        fields = ["image", "name", "user", "likes_recipes"]
+        fields = ["image", "name", "user", "likes_recipes", "categories"]
 
 
 class CategorySerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Category
         fields = "__all__"
+
+
 
 
 class NutritionSerializer(serializers.ModelSerializer):
@@ -56,6 +59,7 @@ class ImageSerializer(serializers.ModelSerializer):
 
 
 class RecipeDetailSerializer(serializers.ModelSerializer):
+
     image_recipes = ImageSerializer(many=True)
     nutrition_recipes = NutritionSerializer(many=True)
     ingredient_recipes = IngredientsSerializer(many=True)
